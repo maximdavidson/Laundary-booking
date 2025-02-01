@@ -1,0 +1,102 @@
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+
+  .modal_content {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    width: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+
+  .close_button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+  
+    &:focus {
+      border-color: #147e177b;
+    }
+  }
+  
+  .button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 10px;
+  }
+  
+  .register {
+    background-color: #147e177b;
+    color: white;
+  
+    &:hover {
+      background-color: #0e5c117b;
+    }
+  }
+
+  .switch_mode a{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #ccc;
+    color: #333;
+    
+    img {
+      width: 20px;
+      margin-right: 10px;
+    }
+  
+    &:hover {
+      background-color: #f1f1f1;
+    }
+  }

@@ -1,0 +1,21 @@
+{
+  "registerModal": {
+    "login": "Вход",
+    "registration": "Регистрация",
+    "name": "Имя",
+    "email": "Email",
+    "password": "Пароль",
+    "submitLogin": "Войти",
+    "submitRegister": "Зарегистрироваться",
+    "noAccount": "Нет аккаунта? ",
+    "haveAccount": "Уже есть аккаунт? ",
+    "switchToLogin": "Войти",
+    "switchToRegister": "Зарегистрироваться",
+    "or": "или",
+    "continueWithGoogle": "Продолжить с Google"
+  },
+  "header": {
+    "greeting": "Привет, {{username}}!",
+    "loginButton": "Войти"
+  }
+}

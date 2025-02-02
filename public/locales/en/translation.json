@@ -1,0 +1,21 @@
+{
+  "registerModal": {
+    "login": "Login",
+    "registration": "Registration",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "submitLogin": "Sign In",
+    "submitRegister": "Sign Up",
+    "noAccount": "Don't have an account? ",
+    "haveAccount": "Already have an account? ",
+    "switchToLogin": "Sign In",
+    "switchToRegister": "Sign Up",
+    "or": "or",
+    "continueWithGoogle": "Continue with Google"
+  },
+  "header": {
+    "greeting": "Hello, {{username}}!",
+    "loginButton": "Login"
+  }
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import style from './registerModal.module.scss'
-import googleLogo from '../../assets/googleLogo.png'
+import googleLogo from '@assets/googleLogo.png'
 import { loginWithEmail, loginWithGoogle, registrationWithEmail } from '../../service/authService'
 import { useTranslation } from 'react-i18next'
 

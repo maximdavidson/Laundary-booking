@@ -1,82 +1,82 @@
 .container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
 }
 
 .header {
-    display: flex;
-    gap: 30px;
+  display: flex;
+  gap: 30px;
 }
 
 .tabsWrapper {
-    display: flex;
-    gap: 32px;
-    border-bottom: 1px solid #e0e0e0;
-    margin-bottom: 24px;
+  display: flex;
+  gap: 32px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 24px;
 }
 
 .tabItem {
-    position: relative;
-    padding: 12px 0;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  position: relative;
+  padding: 12px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
 
-    &:hover:not(.disabled) {
-        .tabLabel::after {
-            opacity: 0;
-        }
+  &:hover:not(.disabled) {
+    .tabLabel::after {
+      opacity: 0;
     }
+  }
 }
 
 .tabLabel {
-    position: relative;
-    font-weight: 500;
-    font-size: 16px;
-    color: #666;
-    padding-bottom: 4px;
-    
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background-color: currentColor;
-        transition: opacity 0.2s ease;
-    }
+  position: relative;
+  font-weight: 500;
+  font-size: 16px;
+  color: #666;
+  padding-bottom: 4px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: opacity 0.2s ease;
+  }
 }
 
 .active {
-    .tabLabel {
-        font-weight: 600;
-        
-        &::after {
-            opacity: 1;
-        }
+  .tabLabel {
+    font-weight: 600;
+
+    &::after {
+      opacity: 1;
     }
+  }
 }
 
 .disabled {
-    cursor: not-allowed;
-    
-    .tabLabel {
-        color: #bdbdbd;
-        
-        &::after {
-            background-color: #bdbdbd;
-        }
+  cursor: not-allowed;
+
+  .tabLabel {
+    color: #bdbdbd;
+
+    &::after {
+      background-color: #bdbdbd;
     }
+  }
 }
 
 .content {
-    margin-top: 15px;
-    max-width: 1200px;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #424242;
-    padding: 16px;
-    background-color: #f8f9fa;
-    border-radius: 4px;
+  margin-top: 15px;
+  max-width: 1200px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #424242;
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
 }

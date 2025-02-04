@@ -1,4 +1,4 @@
-import { Tab } from '../ui/Tebs/tabs.types'
+import { Tab } from '@ui/Tebs/tabs.types'
 
 export const tabsData: Tab[] = [
   {

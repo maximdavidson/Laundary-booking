@@ -17,5 +17,9 @@
   "header": {
     "greeting": "Hello, {{username}}!",
     "loginButton": "Login"
+  },
+  "tabs": {
+    "tab1": "Second floor laundry room",
+    "tab2": "Fifth floor laundry room"
   }
 }

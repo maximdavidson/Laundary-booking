@@ -2,7 +2,7 @@ import { FC, useState } from 'react'
 import styles from './header.module.scss'
 import logo from '../../assets/logo.png'
 import { useAuth } from '../../context/Authcontext'
-import { RegisterModal } from '../../ui/RegisterModal/registerModal'
+import { RegisterModal } from '../../ui/RegisterModal/registerModal.component'
 import { useTranslation } from 'react-i18next'
 
 export const Header: FC = () => {

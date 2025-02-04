@@ -11,6 +11,7 @@ export default defineConfig({
       '@assets': resolve(__dirname, 'src/assets'),
       '@context': resolve(__dirname, 'src/context'),
       '@mock': resolve(__dirname, 'src/mock'),
+      '@constants': resolve(__dirname, 'src/constants'),
     },
   },
 })

@@ -1,0 +1,31 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 40px;
+  background-color: #147e177b;
+}
+
+.language_switcher {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+.language {
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.3s ease;
+  user-select: none;
+
+  &:hover {
+    background: #f0f0f015;
+    border-radius: 10px;
+  }
+
+  &.active {
+    font-weight: bold;
+    color: #555;
+  }
+}

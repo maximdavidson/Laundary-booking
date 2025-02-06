@@ -27,23 +27,3 @@
 .button:hover {
   background-color: #cdcdcd;
 }
-
-.language_switcher {
-  margin-left: auto;
-  display: flex;
-  gap: 10px;
-
-  button {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: white;
-    cursor: pointer;
-
-    &.active {
-      background: #007bff;
-      color: white;
-      border-color: #007bff;
-    }
-  }
-}

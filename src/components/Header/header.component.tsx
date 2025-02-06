@@ -8,11 +8,7 @@ import { useTranslation } from 'react-i18next'
 export const Header: FC = () => {
   const { user } = useAuth()
   const [isModalOpen, setModalOpen] = useState(false)
-  const { t, i18n } = useTranslation()
-
-  const changeLanguage = (language: string) => {
-    i18n.changeLanguage(language)
-  }
+  const { t } = useTranslation()
 
   const handleOpenModal = () => setModalOpen(true)
   const handleCloseModal = () => setModalOpen(false)
@@ -33,20 +29,7 @@ export const Header: FC = () => {
           {t('header.loginButton')}
         </button>
       )}
-      <div className={styles.language_switcher}>
-        <button
-          onClick={() => changeLanguage('ru')}
-          className={i18n.language === 'ru' ? styles.active : ''}
-        >
-          RU
-        </button>
-        <button
-          onClick={() => changeLanguage('en')}
-          className={i18n.language === 'en' ? styles.active : ''}
-        >
-          EN
-        </button>
-      </div>
+
       {isModalOpen && <RegisterModal closeModal={handleCloseModal} />}
     </header>
   )

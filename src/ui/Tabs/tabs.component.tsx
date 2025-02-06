@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './tabs.module.scss'
 import { tabsData } from '@mock/tabsData'
+import { BookingCalendar } from '@ui/Calendar/calendar.component'
 
 export const Tabs: FC = () => {
   const { t } = useTranslation()
@@ -28,7 +29,13 @@ export const Tabs: FC = () => {
           </div>
         ))}
       </div>
-      <div className={styles.content}>{tabsData.find(tab => tab.id === activeTab)?.content}</div>
+      <div>
+        {activeTab === 'tab1' ? (
+          <BookingCalendar />
+        ) : (
+          tabsData.find(tab => tab.id === activeTab)?.content
+        )}
+      </div>
     </div>
   )
 }

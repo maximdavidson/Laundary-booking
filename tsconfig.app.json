@@ -23,7 +23,8 @@
       "@ui/*": ["src/ui/*"],
       "@assets/*": ["src/assets/*"],
       "@context/*": ["src/context/*"],
-      "@mock/*": ["src/mock/*"]
+      "@mock/*": ["src/mock/*"],
+      "@constants/*": ["src/constants/*"]
     }
   },
   "include": ["src"]

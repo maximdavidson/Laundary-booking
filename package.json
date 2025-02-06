@@ -19,6 +19,7 @@
     ]
   },
   "dependencies": {
+    "@demark-pro/react-booking-calendar": "^4.0.3",
     "firebase": "^11.2.0",
     "i18next": "^24.2.2",
     "i18next-browser-languagedetector": "^8.0.2",

@@ -1,5 +1,6 @@
-import { Timestamp } from 'firebase/firestore'
+import { doc, getDoc, Timestamp } from 'firebase/firestore'
 import { addBooking, Booking, cancelBooking } from '../../service/booking'
+import { db } from '../../firebase'
 
 const getBookingStart = (startTime: Timestamp | Date): Date =>
   startTime instanceof Timestamp ? startTime.toDate() : startTime
@@ -10,9 +11,11 @@ export const handleBooking = async (
   user: { uid: string } | null,
   bookings: Booking[],
   setBookings: React.Dispatch<React.SetStateAction<Booking[]>>,
+  showError: (message: string) => void,
+  t: (key: string) => string,
 ) => {
   if (!user) {
-    alert('Для бронирования войдите в систему')
+    showError(t('errors.loginRequired'))
     return
   }
 
@@ -32,25 +35,24 @@ export const handleBooking = async (
         prev.filter(b => getBookingStart(b.startTime).getTime() !== startTime.getTime()),
       )
     } else {
+      const userDoc = await getDoc(doc(db, 'users', user.uid))
+      const userName = userDoc.exists() ? userDoc.data().name : 'Unknown'
+
       const endTime = new Date(startTime)
       endTime.setHours(startTime.getHours() + 1)
-      await addBooking({
+
+      const newBooking: Booking = {
         userId: user.uid,
         startTime: Timestamp.fromDate(startTime),
         endTime: Timestamp.fromDate(endTime),
-      })
+        userName,
+      }
+      await addBooking(newBooking)
 
-      setBookings(prev => [
-        ...prev,
-        {
-          userId: user.uid,
-          startTime: Timestamp.fromDate(startTime),
-          endTime: Timestamp.fromDate(endTime),
-        },
-      ])
+      setBookings(prev => [...prev, newBooking])
     }
   } catch (error) {
-    console.error('Ошибка бронирования:', error)
-    alert('Не удалось забронировать время')
+    console.error('Booking Error:', error)
+    showError(t('errors.bookingFailed'))
   }
 }

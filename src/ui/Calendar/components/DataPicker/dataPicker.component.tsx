@@ -6,9 +6,10 @@ interface DatePickerProps {
   onChange: (date: Date) => void
 }
 
-const DatePicker: React.FC<DatePickerProps> = ({ selectedDate }) => {
+const DatePicker: React.FC<DatePickerProps> = ({ selectedDate, onChange }) => {
   const handleInputchange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    new Date(event.target.value)
+    const newDate = new Date(event.target.value)
+    onChange(newDate)
   }
 
   return (

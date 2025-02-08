@@ -1,4 +1,4 @@
-import { useAuth } from '@context/Authcontext'
+import { useAuth } from '@context/AuthСontext'
 import styles from './calendar.module.scss'
 import { useEffect, useState } from 'react'
 import { TIME_SLOTS } from '@constants/calendarTimeslots'
@@ -7,12 +7,14 @@ import { handleBooking } from '@ui/utils/bookingUtil'
 import DatePicker from './components/DataPicker/dataPicker.component'
 import TimeSlots from './components/TimeSlots/timeSlots.component'
 import { useTranslation } from 'react-i18next'
+import { useNotification } from '@context/NotificationContext'
 
 export const BookingCalendar = () => {
   const { user } = useAuth()
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [bookings, setBookings] = useState<Booking[]>([])
   const [loading, setLoading] = useState(true)
+  const { showError } = useNotification()
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -37,7 +39,7 @@ export const BookingCalendar = () => {
           bookings={bookings}
           selectedDate={selectedDate}
           handleBooking={(time: string) =>
-            handleBooking(time, selectedDate, user, bookings, setBookings)
+            handleBooking(time, selectedDate, user, bookings, setBookings, showError, t)
           }
         />
       )}

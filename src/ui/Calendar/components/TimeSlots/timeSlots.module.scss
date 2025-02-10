@@ -36,3 +36,10 @@
   padding: 20px;
   color: #666;
 }
+
+@media (max-width: 600px) {
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

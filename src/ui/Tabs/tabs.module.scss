@@ -69,3 +69,13 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .tabLabel {
+    font-size: 13px;
+  }
+}

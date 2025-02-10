@@ -2,7 +2,7 @@
   "registerModal": {
     "login": "Вход",
     "registration": "Регистрация",
-    "name": "Имя",
+    "name": "Имя и фамилия",
     "email": "Email",
     "password": "Пароль",
     "submitLogin": "Войти",
@@ -28,5 +28,9 @@
   "timeSlots": {
     "slotFree": "Доступно",
     "slotBook": "Забронировано"
+  },
+  "errors": {
+    "loginRequired": "Для бронирования войдите в систему",
+    "bookingFailed": "Не удалось забронировать время"
   }
 }

@@ -2,7 +2,7 @@
   "registerModal": {
     "login": "Giriş",
     "registration": "Hyzmatyňyza ýazylyş",
-    "name": "Ady",
+    "name": "Ady ve soyady",
     "email": "E-poçta",
     "password": "Açar sozi",
     "submitLogin": "Girişiň",
@@ -28,5 +28,9 @@
   "timeSlots": {
     "slotFree": "Elýeterli",
     "slotBook": "Rezervlenipdir"
+  },
+  "errors": {
+    "loginRequired": "Bronlamak üçin ulgama giriň",
+    "bookingFailed": "Wagt bronlamak başartmady"
   }
 }

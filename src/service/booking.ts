@@ -2,6 +2,7 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   getDocs,
   query,
   setDoc,
@@ -12,24 +13,28 @@ import { db } from '../firebase'
 
 export interface Booking {
   userId: string
+  userName: string
   startTime: Timestamp
   endTime: Timestamp
 }
 
 // Add bookind
 export const addBooking = async (booking: Booking) => {
+  const userDoc = await getDoc(doc(db, 'users', booking.userId))
+  const userName = userDoc.exists() ? userDoc.data().name : 'Unknown'
+
   const startOfSlot = Timestamp.fromDate(booking.startTime.toDate())
   const q = query(collection(db, 'bookings'), where('startTime', '==', startOfSlot))
   const snapshot = await getDocs(q)
 
   if (!snapshot.empty) {
-    throw new Error('Этот слот уже занят')
+    throw new Error('This slot is already booked')
   }
 
   const bookingId = `${booking.userId}_${booking.startTime.toMillis()}`
-
   await setDoc(doc(db, 'bookings', bookingId), {
     ...booking,
+    userName,
     startTime: Timestamp.fromDate(booking.startTime.toDate()),
     endTime: Timestamp.fromDate(booking.endTime.toDate()),
   })
@@ -41,7 +46,7 @@ export const cancelBooking = async (userId: string, startTime: Timestamp) => {
   await deleteDoc(doc(db, 'bookings', bookingId))
 }
 
-// Получение бронирований пользователя
+// Get user bookings
 export const getUserBookings = async (userId: string) => {
   const q = query(collection(db, 'bookings'), where('userId', '==', userId))
   const snapshot = await getDocs(q)
@@ -55,7 +60,7 @@ export const getUserBookings = async (userId: string) => {
   })
 }
 
-// Получение всех бронирований на конкретную дату
+// Get bookings by date
 export const getBookingsByDate = async (selectedDate: Date) => {
   const startOfDay = Timestamp.fromDate(new Date(selectedDate.setHours(0, 0, 0, 0)))
   const endOfDay = Timestamp.fromDate(new Date(selectedDate.setHours(23, 59, 59, 999)))
@@ -73,6 +78,7 @@ export const getBookingsByDate = async (selectedDate: Date) => {
       ...data,
       startTime: data.startTime.toDate(),
       endTime: data.endTime.toDate(),
-    } as Booking
+      userName: data.userName,
+    } as unknown as Booking
   })
 }

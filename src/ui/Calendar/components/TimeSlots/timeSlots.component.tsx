@@ -13,27 +13,28 @@ interface TimeSlotsProps {
 
 const TimeSlots: React.FC<TimeSlotsProps> = ({ timeSlots, bookings, handleBooking }) => {
   const { t } = useTranslation()
+
   return (
     <div className={styles.timeline}>
       {timeSlots.map(time => {
-        const isBooked = bookings.some(b => {
+        const booking = bookings.find(b => {
           const bookingTime = (
             b.startTime instanceof Timestamp ? b.startTime.toDate() : b.startTime
           ).toLocaleTimeString('ru-RU', {
             hour: '2-digit',
             minute: '2-digit',
           })
-
           return bookingTime === time
         })
 
         return (
           <div
             key={time}
-            className={`${styles.slot} ${isBooked ? styles.slotBooked : styles.slotFree}`}
+            className={`${styles.slot} ${booking ? styles.slotBooked : styles.slotFree}`}
             onClick={() => handleBooking(time)}
           >
-            {time} {isBooked ? t('timeSlots.slotBook') : t('timeSlots.slotFree')}
+            {time}{' '}
+            {booking ? `${t('timeSlots.slotBook')} (${booking.userName})` : t('timeSlots.slotFree')}
           </div>
         )
       })}

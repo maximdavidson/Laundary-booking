@@ -3,12 +3,12 @@ import { browserLocalPersistence, getAuth, GoogleAuthProvider, setPersistence } 
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyB0BC5kj0YhycReJQUb4C0OOBmH54usFHg',
-  authDomain: 'laundary-booking.firebaseapp.com',
-  projectId: 'laundary-booking',
-  storageBucket: 'laundary-booking.firebasestorage.app',
-  messagingSenderId: '497698594133',
-  appId: '1:497698594133:web:6b66ae6f2b74b0029023dc',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 }
 
 const app = initializeApp(firebaseConfig)

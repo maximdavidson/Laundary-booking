@@ -97,3 +97,24 @@ input {
     background-color: #f1f1f1;
   }
 }
+
+@media (max-width: 600px) {
+  .modal_content {
+    width: 300px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  input,
+  .button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .button {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}

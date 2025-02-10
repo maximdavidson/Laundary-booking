@@ -1,0 +1,36 @@
+{
+  "registerModal": {
+    "login": "Вход",
+    "registration": "Регистрация",
+    "name": "Имя и фамилия",
+    "email": "Email",
+    "password": "Пароль",
+    "submitLogin": "Войти",
+    "submitRegister": "Зарегистрироваться",
+    "noAccount": "Нет аккаунта? ",
+    "haveAccount": "Уже есть аккаунт? ",
+    "switchToLogin": "Войти",
+    "switchToRegister": "Зарегистрироваться",
+    "or": "или",
+    "continueWithGoogle": "Продолжить с Google"
+  },
+  "header": {
+    "greeting": "Привет, {{username}}!",
+    "loginButton": "Войти"
+  },
+  "tabs": {
+    "tab1": "Постирочная второй этаж",
+    "tab2": "Постирочная пятый этаж"
+  },
+  "loading": {
+    "booking": "Загрузка расписания..."
+  },
+  "timeSlots": {
+    "slotFree": "Доступно",
+    "slotBook": "Забронировано"
+  },
+  "errors": {
+    "loginRequired": "Для бронирования войдите в систему",
+    "bookingFailed": "Не удалось забронировать время"
+  }
+}

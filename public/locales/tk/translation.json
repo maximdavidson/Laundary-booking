@@ -1,0 +1,36 @@
+{
+  "registerModal": {
+    "login": "Giriş",
+    "registration": "Hyzmatyňyza ýazylyş",
+    "name": "Ady ve soyady",
+    "email": "E-poçta",
+    "password": "Açar sozi",
+    "submitLogin": "Girişiň",
+    "submitRegister": "Hyzmatyňyza ýazylyş",
+    "noAccount": "Hasabyňyz ýok? ",
+    "haveAccount": "Hasabyňyz barmy? ",
+    "switchToLogin": "Giriş",
+    "switchToRegister": "Hyzmatyňyza ýazylyş",
+    "or": "ýa-da",
+    "continueWithGoogle": "Google bilen dowam et"
+  },
+  "header": {
+    "greeting": "Salam, {{username}}!",
+    "loginButton": "Giriş"
+  },
+  "tabs": {
+    "tab1": "Yklymlar ikinji etaj",
+    "tab2": "Yklymlar bäşinji etaj"
+  },
+  "loading": {
+    "booking": "Rezervasyon programma ýüklenýär..."
+  },
+  "timeSlots": {
+    "slotFree": "Elýeterli",
+    "slotBook": "Rezervlenipdir"
+  },
+  "errors": {
+    "loginRequired": "Bronlamak üçin ulgama giriň",
+    "bookingFailed": "Wagt bronlamak başartmady"
+  }
+}

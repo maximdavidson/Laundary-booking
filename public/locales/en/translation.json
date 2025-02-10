@@ -1,0 +1,36 @@
+{
+  "registerModal": {
+    "login": "Login",
+    "registration": "Registration",
+    "name": "Name and surname",
+    "email": "Email",
+    "password": "Password",
+    "submitLogin": "Sign In",
+    "submitRegister": "Sign Up",
+    "noAccount": "Don't have an account? ",
+    "haveAccount": "Already have an account? ",
+    "switchToLogin": "Sign In",
+    "switchToRegister": "Sign Up",
+    "or": "or",
+    "continueWithGoogle": "Continue with Google"
+  },
+  "header": {
+    "greeting": "Hello, {{username}}!",
+    "loginButton": "Login"
+  },
+  "tabs": {
+    "tab1": "Second floor laundry room",
+    "tab2": "Fifth floor laundry room"
+  },
+  "loading": {
+    "booking": "Load schedule..."
+  },
+  "timeSlots": {
+    "slotFree": "Free",
+    "slotBook": "Booked"
+  },
+  "errors": {
+    "loginRequired": "Please log in to make a booking",
+    "bookingFailed": "Failed to book the time"
+  }
+}

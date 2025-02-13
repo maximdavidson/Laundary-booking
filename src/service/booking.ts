@@ -16,6 +16,7 @@ export interface Booking {
   userName: string
   startTime: Timestamp
   endTime: Timestamp
+  roomNumber: string
 }
 
 // Add bookind
@@ -35,6 +36,7 @@ export const addBooking = async (booking: Booking) => {
   await setDoc(doc(db, 'bookings', bookingId), {
     ...booking,
     userName,
+    roomNumber: booking.roomNumber,
     startTime: Timestamp.fromDate(booking.startTime.toDate()),
     endTime: Timestamp.fromDate(booking.endTime.toDate()),
   })

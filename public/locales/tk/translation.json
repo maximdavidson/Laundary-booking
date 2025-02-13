@@ -27,10 +27,24 @@
   },
   "timeSlots": {
     "slotFree": "Elýeterli",
-    "slotBook": "Rezervlenipdir"
+    "slotBook": "Rezervlenipdir",
+    "cancelConfirmation": "Siz hakykatdanam bron etmegi bes etmek isleýärsiňizmi?"
   },
   "errors": {
     "loginRequired": "Bronlamak üçin ulgama giriň",
-    "bookingFailed": "Wagt bronlamak başartmady"
-  }
+    "bookingFailed": "Wagt bronlamak başartmady",
+    "roomNumberRequired": "Otag belgisini giriziň",
+    "bookingCancelError": "Brony ýatyrmakda säwlik ýüze çykdy"
+  },
+  "bookingModal": {
+    "title": "{{time}} üçin bron",
+    "roomPlaceholder": "Otag belgisini giriziň",
+    "submit": "Bron etmek"
+  },
+  "rules": {
+    "title": "Ýuwujy maşyn ulanyş düzgünlerini berjaý ediň:",
+    "point1": "Bron edilen wagta görä ýuwujy tertibini saýlaň (1 sagat - 'çalt ýuwuş'). Beýleki tertip gerek bolsa, birnäçe sagat bron ediň.",
+    "point2": "Ýuwlandan soň eşikleriňizi unutmaň, çyglylygy we kir ýuwujy galyndylaryny süpüriň, gapyny we tozan bölümini açyk goýuň."
+  },
+  "room": "Otag"
 }

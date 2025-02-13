@@ -38,9 +38,11 @@ export const BookingCalendar = () => {
           timeSlots={TIME_SLOTS}
           bookings={bookings}
           selectedDate={selectedDate}
-          handleBooking={(time: string) =>
-            handleBooking(time, selectedDate, user, bookings, setBookings, showError, t)
+          handleBooking={(time: string, roomNumber: string) =>
+            handleBooking(time, selectedDate, user, bookings, setBookings, showError, t, roomNumber)
           }
+          user={user}
+          setBookings={setBookings}
         />
       )}
     </div>

@@ -27,10 +27,24 @@
   },
   "timeSlots": {
     "slotFree": "Free",
-    "slotBook": "Booked"
+    "slotBook": "Booked",
+    "cancelConfirmation": "Are you sure you want to cancel the booking?"
   },
   "errors": {
     "loginRequired": "Please log in to make a booking",
-    "bookingFailed": "Failed to book the time"
-  }
+    "bookingFailed": "Failed to book the time",
+    "roomNumberRequired": "Please enter a room number",
+    "bookingCancelError": "Error canceling booking"
+  },
+  "bookingModal": {
+    "title": "Booking for {{time}}",
+    "roomPlaceholder": "Enter room number",
+    "submit": "Book"
+  },
+  "rules": {
+    "title": "Please follow the laundry room rules:",
+    "point1": "Choose the washing mode according to the booked time (1 hour - 'quick wash'). If you need a different mode, book multiple hours.",
+    "point2": "After washing, do not forget your clothes, wipe off moisture and detergent residues, and leave the door and detergent compartment open."
+  },
+  "room": "Room"
 }

@@ -13,6 +13,7 @@ export const handleBooking = async (
   setBookings: React.Dispatch<React.SetStateAction<Booking[]>>,
   showError: (message: string) => void,
   t: (key: string) => string,
+  roomNumber: string,
 ) => {
   if (!user) {
     showError(t('errors.loginRequired'))
@@ -46,6 +47,7 @@ export const handleBooking = async (
         startTime: Timestamp.fromDate(startTime),
         endTime: Timestamp.fromDate(endTime),
         userName,
+        roomNumber,
       }
       await addBooking(newBooking)
 

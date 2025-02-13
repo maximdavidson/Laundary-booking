@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './timeSlots.module.scss'
 import { Timestamp } from 'firebase/firestore'
-import { Booking, cancelBooking } from '../../../../service/booking'
+import { Booking, cancelBooking, getBookingsByDate } from '../../../../service/booking'
 import { useTranslation } from 'react-i18next'
 import { BookingModal } from '@ui/BookingModal/bookingModal.component'
 
@@ -24,6 +24,7 @@ const TimeSlots: React.FC<TimeSlotsProps> = ({
   timeSlots,
   bookings,
   handleBooking,
+  selectedDate,
   user,
   setBookings,
 }) => {
@@ -37,9 +38,20 @@ const TimeSlots: React.FC<TimeSlotsProps> = ({
     if (booking) {
       if (booking.userId === user?.uid) {
         if (window.confirm(t('timeSlots.cancelConfirmation'))) {
-          cancelBooking(booking.userId, booking.startTime)
+          const startTimeTimestamp =
+            booking.startTime instanceof Timestamp
+              ? booking.startTime
+              : Timestamp.fromDate(booking.startTime)
+
+          cancelBooking(booking.userId, startTimeTimestamp)
             .then(() => {
-              setBookings(bookings.filter(b => b.startTime !== booking.startTime))
+              getBookingsByDate(selectedDate)
+                .then(updatedBookings => {
+                  setBookings(updatedBookings)
+                })
+                .catch(error => {
+                  console.error(t('errors.bookingCancelError'), error)
+                })
             })
             .catch(error => {
               console.error(t('errors.bookingCancelError'), error)

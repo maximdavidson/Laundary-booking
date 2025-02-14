@@ -46,5 +46,13 @@
     "point1": "Bron edilen wagta görä ýuwujy tertibini saýlaň (1 sagat - 'çalt ýuwuş'). Beýleki tertip gerek bolsa, birnäçe sagat bron ediň.",
     "point2": "Ýuwlandan soň eşikleriňizi unutmaň, çyglylygy we kir ýuwujy galyndylaryny süpüriň, gapyny we tozan bölümini açyk goýuň."
   },
+  "validation": {
+    "nameRequired": "At hökmany",
+    "nameMin": "Iň azy 2 harp",
+    "emailRequired": "E-poçta hökmany",
+    "emailInvalid": "Nädogry e-poçta",
+    "passwordRequired": "Parol hökmany",
+    "passwordMin": "Iň azy 6 harp"
+  },
   "room": "Otag"
 }

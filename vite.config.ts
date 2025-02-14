@@ -12,6 +12,7 @@ export default defineConfig({
       '@context': resolve(__dirname, 'src/context'),
       '@mock': resolve(__dirname, 'src/mock'),
       '@constants': resolve(__dirname, 'src/constants'),
+      '@validation': resolve(__dirname, 'src/validation'),
     },
   },
 })

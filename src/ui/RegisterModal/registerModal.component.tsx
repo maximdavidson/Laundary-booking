@@ -1,8 +1,11 @@
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 import style from './registerModal.module.scss'
 import googleLogo from '@assets/googleLogo.png'
 import { loginWithEmail, loginWithGoogle, registrationWithEmail } from '../../service/authService'
 import { useTranslation } from 'react-i18next'
+import { getAuthValidationSchema } from '@validation/authValidation'
 
 interface RegisterModalProps {
   closeModal: () => void
@@ -10,28 +13,24 @@ interface RegisterModalProps {
 
 export const RegisterModal = ({ closeModal }: RegisterModalProps) => {
   const [isLoginMode, setIsLoginMode] = useState(false)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
   const { t } = useTranslation()
 
-  const handleSetName = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value)
-  }
-  const handleSetEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value)
-  }
-  const handleSetPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value)
-  }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({
+    resolver: yupResolver(getAuthValidationSchema(isLoginMode)),
+    context: { isLoginMode },
+    mode: 'onChange',
+  })
 
-  const handleSubmit = async () => {
+  const onSubmit = async (data: { name?: string; email: string; password: string }) => {
     try {
       if (isLoginMode) {
-        await loginWithEmail(email, password)
+        await loginWithEmail(data.email, data.password)
       } else {
-        await registrationWithEmail(email, password, name)
+        await registrationWithEmail(data.email, data.password, data.name!)
       }
       closeModal()
     } catch (error) {
@@ -47,31 +46,43 @@ export const RegisterModal = ({ closeModal }: RegisterModalProps) => {
         </button>
         <h2>{t(isLoginMode ? 'registerModal.login' : 'registerModal.registration')}</h2>
 
-        {!isLoginMode && (
-          <input
-            type='text'
-            placeholder={t('registerModal.name')}
-            value={name}
-            onChange={handleSetName}
-          />
-        )}
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {!isLoginMode && (
+            <div className={style.input_container}>
+              <input
+                type='text'
+                placeholder={t('registerModal.name')}
+                className={errors.name ? style.error : ''}
+                {...register('name')}
+              />
+              {errors.name && <p className={style.error_message}>{errors.name.message}</p>}
+            </div>
+          )}
 
-        <input
-          type='email'
-          placeholder={t('registerModal.email')}
-          value={email}
-          onChange={handleSetEmail}
-        />
-        <input
-          type='password'
-          placeholder={t('registerModal.password')}
-          value={password}
-          onChange={handleSetPassword}
-        />
+          <div className={style.input_container}>
+            <input
+              type='email'
+              placeholder={t('registerModal.email')}
+              className={errors.email ? style.error : ''}
+              {...register('email')}
+            />
+            {errors.email && <p className={style.error_message}>{errors.email.message}</p>}
+          </div>
 
-        <button className={`${style.button} ${style.register}`} onClick={handleSubmit}>
-          {t(isLoginMode ? 'registerModal.submitLogin' : 'registerModal.submitRegister')}
-        </button>
+          <div className={style.input_container}>
+            <input
+              type='password'
+              placeholder={t('registerModal.password')}
+              className={errors.password ? style.error : ''}
+              {...register('password')}
+            />
+            {errors.password && <p className={style.error_message}>{errors.password.message}</p>}
+          </div>
+
+          <button className={`${style.button} ${style.register}`} type='submit' disabled={!isValid}>
+            {t(isLoginMode ? 'registerModal.submitLogin' : 'registerModal.submitRegister')}
+          </button>
+        </form>
 
         <div className={style.switch_mode}>
           {isLoginMode ? t('registerModal.noAccount') : t('registerModal.haveAccount')}

@@ -34,7 +34,8 @@
     "loginRequired": "Please log in to make a booking",
     "bookingFailed": "Failed to book the time",
     "roomNumberRequired": "Please enter a room number",
-    "bookingCancelError": "Error canceling booking"
+    "bookingCancelError": "Error canceling booking",
+    "foreignTime": "Foreign students can book between 18:00-21:00"
   },
   "bookingModal": {
     "title": "Booking for {{time}}",

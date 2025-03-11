@@ -55,6 +55,14 @@ export const handleBooking = async (
     }
   } catch (error) {
     console.error('Booking Error:', error)
-    showError(t('errors.bookingFailed'))
+    if (error instanceof Error) {
+      if (error.message === 'FOREIGN_TIME_RESTRICTION') {
+        showError(t('errors.foreignTime'))
+      } else {
+        showError(t('errors.bookingFailed'))
+      }
+    } else {
+      showError(t('errors.bookingFailed'))
+    }
   }
 }

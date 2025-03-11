@@ -24,6 +24,21 @@ export const addBooking = async (booking: Booking) => {
   const userDoc = await getDoc(doc(db, 'users', booking.userId))
   const userName = userDoc.exists() ? userDoc.data().name : 'Unknown'
 
+  const isForeignName = !/[\u0400-\u04FF]/i.test(userName)
+  if (isForeignName) {
+    const startDate = booking.startTime.toDate()
+    const endDate = booking.endTime.toDate()
+
+    const startMinutes = startDate.getHours() * 60 + startDate.getMinutes()
+    const endMinutes = endDate.getHours() * 60 + endDate.getMinutes()
+    const minAllowed = 18 * 60
+    const maxAllowed = 21 * 60
+
+    if (startMinutes < minAllowed || endMinutes > maxAllowed) {
+      throw new Error('FOREIGN_TIME_RESTRICTION')
+    }
+  }
+
   const startOfSlot = Timestamp.fromDate(booking.startTime.toDate())
   const q = query(collection(db, 'bookings'), where('startTime', '==', startOfSlot))
   const snapshot = await getDocs(q)

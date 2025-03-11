@@ -23,12 +23,13 @@ export const Footer = () => {
         >
           EN
         </span>
-        <span
+        {/* Discomment if students from Turkmenistan return  */}
+        {/* <span
           onClick={() => changeLanguage('tk')}
           className={`${i18n.language === 'tk' ? styles.active : ''} ${styles.language}`}
         >
           TK
-        </span>
+        </span> */}
       </div>
     </footer>
   )

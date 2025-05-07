@@ -28,7 +28,10 @@
   "timeSlots": {
     "slotFree": "Доступно",
     "slotBook": "Забронировано",
-    "cancelConfirmation": "Вы точно хотите отменить бронирование?"
+    "cancelConfirmation": "Вы точно хотите отменить бронирование?",
+    "sanitaryHour": "Санитарный час",
+    "setSanitaryConfirmation": "Установить санитарный час?",
+    "cancelSanitaryConfirmation": "Отменить санитарный час?"
   },
   "errors": {
     "loginRequired": "Для бронирования войдите в систему",
@@ -55,5 +58,6 @@
     "passwordRequired": "Пароль обязателен",
     "passwordMin": "Минимум 6 символов"
   },
-  "room": "Комната"
+  "room": "Комната",
+  "techWork": "В связи с техническими работами, стиральная машина не работает с 08.05.2025 по 15.05.2025"
 }

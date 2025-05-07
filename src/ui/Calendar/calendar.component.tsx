@@ -16,6 +16,7 @@ export const BookingCalendar = () => {
   const [loading, setLoading] = useState(true)
   const { showError } = useNotification()
   const { t } = useTranslation()
+  const adminUID = import.meta.env.VITE_FIREBASE_ADMIN_UID
 
   useEffect(() => {
     const loadBookings = async () => {
@@ -35,6 +36,7 @@ export const BookingCalendar = () => {
         <div className={styles.loading}>{t('loading.booking')}</div>
       ) : (
         <TimeSlots
+          isAdmin={user?.uid === adminUID}
           timeSlots={TIME_SLOTS}
           bookings={bookings}
           selectedDate={selectedDate}

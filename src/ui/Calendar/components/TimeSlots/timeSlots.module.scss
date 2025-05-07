@@ -37,6 +37,12 @@
   color: #666;
 }
 
+.slotSanitary {
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+  color: #856404;
+}
+
 @media (max-width: 600px) {
   .timeline {
     grid-template-columns: 1fr;

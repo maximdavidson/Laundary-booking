@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { BookingModal } from '@ui/BookingModal/bookingModal.component'
 
 interface TimeSlotsProps {
+  isAdmin: boolean
   timeSlots: string[]
   bookings: Booking[]
   selectedDate: Date
@@ -21,6 +22,7 @@ const getBookingTime = (booking: Booking): string => {
 }
 
 const TimeSlots: React.FC<TimeSlotsProps> = ({
+  isAdmin,
   timeSlots,
   bookings,
   handleBooking,
@@ -36,7 +38,7 @@ const TimeSlots: React.FC<TimeSlotsProps> = ({
     const booking = bookings.find(b => getBookingTime(b) === time)
 
     if (booking) {
-      if (booking.userId === user?.uid) {
+      if (isAdmin || booking.userId === user?.uid) {
         if (window.confirm(t('timeSlots.cancelConfirmation'))) {
           const startTimeTimestamp =
             booking.startTime instanceof Timestamp

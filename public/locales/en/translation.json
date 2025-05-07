@@ -28,7 +28,10 @@
   "timeSlots": {
     "slotFree": "Free",
     "slotBook": "Booked",
-    "cancelConfirmation": "Are you sure you want to cancel the booking?"
+    "cancelConfirmation": "Are you sure you want to cancel the booking?",
+    "sanitaryHour": "Sanitary Hour",
+    "setSanitaryConfirmation": "Set sanitary hour?",
+    "cancelSanitaryConfirmation": "Cancel sanitary hour?"
   },
   "errors": {
     "loginRequired": "Please log in to make a booking",
@@ -55,5 +58,6 @@
     "passwordRequired": "Password is required",
     "passwordMin": "Minimum 6 characters"
   },
-  "room": "Room"
+  "room": "Room",
+  "techWork": "Due to technical works, the washing machine is not working from 08.05.2025 to 15.05.2025"
 }
